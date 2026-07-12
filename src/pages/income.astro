@@ -2,12 +2,60 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BOOKING_URL, COMPLIANCE } from '../site.config';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Lifetime Income Planning',
-  description: 'Learn how to turn retirement savings into guaranteed lifetime income, including how income riders on fixed indexed annuities work.',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Lifetime Income Planning',
+    description: 'Learn how to turn retirement savings into guaranteed lifetime income, including how income riders on fixed indexed annuities work.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is an income rider?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'An income rider is an optional add-on available on many fixed indexed annuity contracts, typically for an additional cost, that guarantees a stream of income for life once you begin taking withdrawals.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why does guaranteed income matter in retirement?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Social Security and, for some, a pension provide a foundation of guaranteed income, but for many people that foundation is not enough to cover all expenses. Guaranteed income sources help ensure you do not outlive your savings.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can an income rider run out?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. Unlike simply withdrawing from a regular savings account, an income rider is backed by the insurance company\'s guarantee, so income payments are designed to continue for your lifetime even if the underlying account value is drawn down to zero.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do fixed indexed annuities support an income plan?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Fixed indexed annuities combine principal protection, so money set aside for future income is not exposed to market losses, with the option to add an income rider that converts that protected value into a guaranteed paycheck for life.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I build an income plan?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'The right income strategy depends on your full financial picture, including your other savings, Social Security timing, expenses, and goals. A licensed advisor can help you map out where guaranteed income fits.',
+        },
+      },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Lifetime Income Planning | Prosperity Services Group"
@@ -65,7 +113,9 @@ const jsonLd = {
       <p>
         The right income strategy depends on your full financial picture — your other savings,
         Social Security timing, expenses, and goals. A licensed advisor can help you map out where
-        guaranteed income fits alongside your other retirement assets.
+        guaranteed income fits alongside your other retirement assets. Prefer to start with a
+        written overview? Request our <a href="/guide">free Safe Money Guide</a>, or
+        <a href="/contact">get in touch</a> with any questions.
       </p>
 
       <div class="disclaimer">

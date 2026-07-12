@@ -2,12 +2,60 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BOOKING_URL, COMPLIANCE } from '../site.config';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Safe Money Strategies for Retirement',
-  description: 'Understand safe money strategies and sequence of returns risk, and how protecting retirement savings from market downturns matters.',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Safe Money Strategies for Retirement',
+    description: 'Understand safe money strategies and sequence of returns risk, and how protecting retirement savings from market downturns matters.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is "safe money" in retirement planning?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '"Safe money" is the portion of your savings you can\'t afford to lose to a market downturn — the money that needs to be there when you need it, not just when the market cooperates.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Why does market risk matter more in retirement?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'While you are working, market downturns are uncomfortable but recoverable because you are not withdrawing from the account. In retirement, withdrawing from an account that has also dropped in value makes the math far less forgiving.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is sequence of returns risk?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sequence of returns risk is the risk that the order in which you experience investment gains and losses, not just the average return over time, can permanently affect how long your money lasts, especially if a downturn happens early in retirement while you are withdrawing income.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do safe money strategies work?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A safe money strategy generally divides your retirement savings so some funds stay invested for long-term growth while a portion is protected from market loss and positioned to cover near-term income needs.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Are fixed indexed annuities used in safe money strategies?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Fixed indexed annuities are often used as part of a safe money approach because they offer principal protection with the opportunity for growth tied to a market index.',
+        },
+      },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Safe Money Strategies | Prosperity Services Group"
@@ -67,7 +115,8 @@ const jsonLd = {
         used as part of this approach because they offer principal protection with the opportunity
         for growth. Learn more about how these products work on our
         <a href="/annuities">Fixed Indexed Annuities</a> page, or see how they can be used to build
-        guaranteed income on our <a href="/income">Lifetime Income Planning</a> page.
+        guaranteed income on our <a href="/income">Lifetime Income Planning</a> page. For a
+        deeper, written walkthrough, request our <a href="/guide">free Safe Money Guide</a>.
       </p>
 
       <div class="disclaimer">

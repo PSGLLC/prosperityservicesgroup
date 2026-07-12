@@ -2,12 +2,60 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BOOKING_URL, COMPLIANCE } from '../site.config';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Fixed Indexed Annuities Explained',
-  description: 'A plain-English explanation of fixed indexed annuities: how they work, and their principal protection, growth, and income benefits.',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Fixed Indexed Annuities Explained',
+    description: 'A plain-English explanation of fixed indexed annuities: how they work, and their principal protection, growth, and income benefits.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is a fixed indexed annuity?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A fixed indexed annuity (FIA) is an insurance contract, not a direct investment in the stock market. The insurance company credits interest based in part on the performance of a market index, but your principal is never directly invested in that index.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I lose money in a fixed indexed annuity?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Your principal and previously credited interest are protected from market downturns as long as you hold the contract per its terms. If the index goes down, you simply receive no interest credit for that period rather than losing account value.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How is interest credited on an FIA?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Each contract period, the insurance company calculates interest credits based on the performance of the linked index, subject to caps, participation rates, or spreads outlined in your contract.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can a fixed indexed annuity provide lifetime income?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Many FIA contracts offer optional income riders that can convert your accumulated value into a guaranteed stream of income you cannot outlive.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who might consider a fixed indexed annuity?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'FIAs are generally designed for people who want to protect a portion of their retirement savings from market risk while still participating in some growth potential, often as part of a broader safe money strategy.',
+        },
+      },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Fixed Indexed Annuities Explained | Prosperity Services Group"
@@ -61,7 +109,7 @@ const jsonLd = {
         </div>
         <div class="card card-gold">
           <h3>Lifetime Income Options</h3>
-          <p>Many contracts offer optional income riders that can convert your accumulated value into a guaranteed stream of income you cannot outlive.</p>
+          <p>Many contracts offer optional income riders that can convert your accumulated value into a guaranteed stream of income you cannot outlive. See how this works on our <a href="/income">Lifetime Income Planning</a> page.</p>
         </div>
       </div>
 
@@ -69,9 +117,11 @@ const jsonLd = {
       <p>
         Fixed indexed annuities are generally designed for people who want to protect a portion of
         their retirement savings from market risk while still participating in some growth
-        potential — often as part of a broader "safe money" strategy alongside other retirement
+        potential — often as part of a broader
+        <a href="/safe-money">"safe money" strategy</a> alongside other retirement
         assets. Whether an FIA fits your situation depends on your goals, timeline, and full
-        financial picture.
+        financial picture. Want a deeper walkthrough? Request our
+        <a href="/guide">free Safe Money Guide</a>.
       </p>
 
       <div class="disclaimer">
