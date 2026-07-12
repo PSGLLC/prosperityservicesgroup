@@ -96,7 +96,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     email,
     phone,
     locationId: GHL_LOCATION_ID,
-    tags: ["safe-money-guide-request"],
+    tags: ["psg-annuity-guide"],
     source: "prosperityservicesgroup-guide-page",
     pagePath: String(body.pagePath ?? "/guide"),
     smsOptIn,
