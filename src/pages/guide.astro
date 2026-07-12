@@ -1,0 +1,308 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BOOKING_URL, COMPLIANCE } from '../site.config';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Free Safe Money Guide',
+  description: 'Request a free guide covering safe money strategies and fixed indexed annuities, delivered by email.',
+};
+---
+<BaseLayout
+  title="Get the Free Safe Money Guide | Prosperity Services Group"
+  description="Request our free Safe Money Guide: protecting your retirement savings from market risk and building guaranteed income — sent straight to your inbox."
+  path="/guide"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow eyebrow-gold">Free Guide</p>
+      <h1>Your Free Safe Money Guide</h1>
+      <p class="subhead">
+        A clear, no-pressure walkthrough of how to protect your retirement savings from market
+        risk and build guaranteed income you can't outlive.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container guide-grid">
+      <div class="card">
+        <h2>What's inside</h2>
+        <ul>
+          <li>A plain-English breakdown of safe money strategies</li>
+          <li>How sequence of returns risk can affect your retirement income</li>
+          <li>How fixed indexed annuities offer principal protection and growth potential</li>
+          <li>What an income rider is and how it can guarantee lifetime income</li>
+          <li>Questions to ask before moving any portion of your savings</li>
+        </ul>
+        <p class="fine-print">
+          This guide is educational and does not recommend any specific insurance product.
+        </p>
+        <div class="disclaimer">
+          {COMPLIANCE.annuityDisclaimer}
+        </div>
+      </div>
+      <div class="preview-card">
+        <p class="eyebrow eyebrow-gold">Get the Guide</p>
+        <h2 class="form-heading">Take a peek inside</h2>
+
+        <div class="pdf-preview" aria-hidden="true">
+          <iframe
+            src="/docs/Safe-Money-Guide.pdf#page=1&toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+            title="Preview of the Safe Money Guide cover page"
+            tabindex="-1"
+          ></iframe>
+          <div class="pdf-preview-overlay"></div>
+        </div>
+        <p class="preview-caption">A quick look at the guide — enter your info below and we'll email you the full copy.</p>
+
+        <h2 class="form-heading">Tell us where to send it</h2>
+
+        <form id="guide-lead-form" class="lead-form" novalidate>
+          <div class="form-row">
+            <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" required />
+          </div>
+          <div class="form-row">
+            <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+          </div>
+          <!-- Honeypot — hidden from real visitors -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row form-row-checkbox">
+            <label class="checkbox-label" for="smsOptIn">
+              <input type="checkbox" id="smsOptIn" name="smsOptIn" required />
+              <span>I agree to receive text messages from Price Services Group LLC. Message and data rates may apply.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-gold form-submit">Send Me the Free Guide</button>
+          <p id="guide-form-error" class="form-error" role="alert" hidden></p>
+        </form>
+
+        <div id="guide-form-success" class="form-success" hidden>
+          <p>Your guide is on its way — check your inbox!</p>
+        </div>
+
+        <p class="compliance-note">
+          By submitting this form you agree to be contacted by Price Services Group LLC.
+          We respect your privacy and will never sell your information.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('guide-lead-form') as HTMLFormElement | null;
+    const errorEl = document.getElementById('guide-form-error');
+    const successEl = document.getElementById('guide-form-success');
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (errorEl) {
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+      }
+
+      const formData = new FormData(form);
+      const smsOptIn = formData.get('smsOptIn') === 'on';
+
+      if (!smsOptIn) {
+        if (errorEl) {
+          errorEl.textContent = 'Please check the box to agree to receive text messages.';
+          errorEl.hidden = false;
+        }
+        return;
+      }
+
+      const payload = {
+        firstName: String(formData.get('firstName') ?? '').trim(),
+        lastName: String(formData.get('lastName') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        phone: String(formData.get('phone') ?? '').trim(),
+        website: String(formData.get('website') ?? ''),
+        smsOptIn: true,
+        pagePath: window.location.pathname,
+      };
+
+      const submitBtn = form.querySelector<HTMLButtonElement>('.form-submit');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+      }
+
+      try {
+        const res = await fetch('/api/guide-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({ ok: false }));
+
+        if (res.ok && data.ok) {
+          form.hidden = true;
+          if (successEl) successEl.hidden = false;
+        } else {
+          throw new Error(data.error || 'Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        if (errorEl) {
+          errorEl.textContent = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+          errorEl.hidden = false;
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Me the Free Guide';
+        }
+      }
+    });
+  </script>
+
+  <section class="section-alt cta-band">
+    <div class="container cta-inner">
+      <h2>Want to talk it through?</h2>
+      <p>Schedule a free, no-pressure consultation with a licensed independent advisor.</p>
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-teal">Schedule a Consultation</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: var(--color-lavender); padding: 4rem 0; }
+  :root[data-theme="dark"] .page-hero { background: var(--color-bg-alt); }
+  .subhead { color: var(--color-text-muted); font-size: 1.1rem; max-width: 640px; margin-bottom: 1.75rem; }
+  .guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .guide-grid ul { padding-left: 1.2rem; margin-bottom: 1.5rem; }
+  .guide-grid li { margin-bottom: 0.5rem; }
+  .fine-print { color: var(--color-text-muted); font-size: 0.85rem; margin: 0 0 1.25rem; }
+  .preview-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    text-align: left;
+  }
+  .preview-card .eyebrow { text-align: center; display: block; }
+  .form-heading { text-align: center; font-size: 1.4rem; margin-bottom: 1.25rem; }
+  .pdf-preview {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 8.5 / 11;
+    margin: 0 auto 0.75rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+    background: var(--color-bg);
+  }
+  .pdf-preview iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+  }
+  .pdf-preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    /* Sits above the iframe so clicks/right-clicks can't reach the PDF viewer chrome. */
+  }
+  .preview-caption {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin: 0 0 1.5rem;
+  }
+  @media (max-width: 800px) {
+    .guide-grid { grid-template-columns: 1fr; }
+  }
+  .cta-band { text-align: center; }
+  .cta-inner p { color: var(--color-text-muted); margin-bottom: 1.5rem; }
+
+  .lead-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: flex; flex-direction: column; gap: 0.35rem; text-align: left; }
+  .form-row label { font-weight: 600; font-size: 0.9rem; color: var(--color-text); }
+  .form-row .optional { font-weight: 400; color: var(--color-text-muted); font-size: 0.8rem; }
+  .form-row input {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+  .form-row input:focus {
+    outline: none;
+    border-color: var(--color-purple);
+    box-shadow: 0 0 0 3px rgba(144, 89, 181, 0.18);
+  }
+  :root[data-theme="dark"] .form-row input:focus {
+    border-color: var(--color-teal);
+    box-shadow: 0 0 0 3px rgba(81, 222, 204, 0.18);
+  }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-row-checkbox { flex-direction: row; }
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+  }
+  .checkbox-label input[type='checkbox'] {
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.15rem;
+    accent-color: var(--color-purple);
+  }
+  .form-submit { width: 100%; text-align: center; margin-top: 0.25rem; }
+  .form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+  .form-error {
+    color: #b3261e;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  .form-success {
+    background: var(--color-lavender);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  :root[data-theme="dark"] .form-success { background: rgba(81, 222, 204, 0.12); }
+  .compliance-note {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    margin: 1.25rem 0 0;
+    text-align: center;
+  }
+</style>
