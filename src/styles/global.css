@@ -5,7 +5,6 @@
   --color-teal: #51decc;
   --color-dark: #1a0a2e;
   --color-lavender: #EAD8F6;
-  --color-gold: #C8A84B;
 
   --color-bg: #ffffff;
   --color-bg-alt: #faf7fd;
@@ -89,9 +88,9 @@ a { color: var(--color-purple); }
 }
 
 .btn-gold {
-  background: var(--color-gold);
+  background: var(--color-teal);
   color: var(--color-dark);
-  box-shadow: 0 6px 18px rgba(200, 168, 75, 0.35);
+  box-shadow: 0 6px 18px rgba(81, 222, 204, 0.35);
 }
 
 .btn-outline {
@@ -113,7 +112,7 @@ section { padding: 4.5rem 0; }
 }
 
 .card-gold {
-  border-top: 3px solid var(--color-gold);
+  border-top: 3px solid var(--color-purple);
 }
 
 .eyebrow {
@@ -126,7 +125,10 @@ section { padding: 4.5rem 0; }
 :root[data-theme="dark"] .eyebrow { color: var(--color-teal); }
 
 .eyebrow-gold {
-  color: var(--color-gold) !important;
+  color: var(--color-purple) !important;
+}
+:root[data-theme="dark"] .eyebrow-gold {
+  color: var(--color-teal) !important;
 }
 
 .grid {
@@ -173,17 +175,17 @@ table.compare tr:last-child td { border-bottom: none; }
 }
 
 .callout-gold {
-  border-left: 4px solid var(--color-gold);
-  background: #faf3e3;
+  border-left: 4px solid var(--color-purple);
+  background: #f5edfb;
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 1.25rem 1.5rem;
 }
 :root[data-theme="dark"] .callout-gold {
-  background: rgba(200, 168, 75, 0.1);
+  background: rgba(144, 89, 181, 0.12);
 }
 
 .disclaimer {
-  border-left: 4px solid var(--color-gold);
+  border-left: 4px solid var(--color-purple);
   background: var(--color-bg-alt);
   border-radius: 0 var(--radius) var(--radius) 0;
   padding: 1.1rem 1.5rem;
@@ -191,7 +193,7 @@ table.compare tr:last-child td { border-bottom: none; }
   color: var(--color-text-muted);
 }
 :root[data-theme="dark"] .disclaimer {
-  background: rgba(200, 168, 75, 0.08);
+  background: rgba(144, 89, 181, 0.08);
 }
 
 .warning {
