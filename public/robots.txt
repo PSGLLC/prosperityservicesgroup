@@ -19,4 +19,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://prosperityservicesgroup.com/sitemap.xml
+Sitemap: https://prosperityservicesgroup.com/sitemap-index.xml
