@@ -2,12 +2,40 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { BOOKING_URL, COMPLIANCE } from '../site.config';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Free PSG Annuity Guide',
-  description: 'Request a free guide covering safe money strategies and fixed indexed annuities, delivered by email.',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Free PSG Annuity Guide',
+    description: 'Request a free guide covering safe money strategies and fixed indexed annuities, delivered by email.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What does the free PSG Annuity Guide cover?',
+        acceptedAnswer: { '@type': 'Answer', text: 'The guide breaks down safe money strategies in plain English, explains sequence of returns risk, covers how fixed indexed annuities offer principal protection and growth potential, explains what an income rider is, and lists questions to ask before moving any portion of your savings.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I get the free guide?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Fill out the short form on this page with your name, email, and phone number, and we\'ll email you the full guide.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is the guide free and is there any obligation to buy something?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Yes, the guide is completely free and educational. It does not recommend any specific insurance product, and requesting it doesn\'t obligate you to purchase anything.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who is the PSG Annuity Guide for?',
+        acceptedAnswer: { '@type': 'Answer', text: 'It\'s designed for anyone approaching or in retirement who wants a clear, no-pressure walkthrough of how to protect retirement savings from market risk and build guaranteed lifetime income.' },
+      },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Get the Free PSG Annuity Guide | Prosperity Services Group"

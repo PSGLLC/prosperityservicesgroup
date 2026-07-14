@@ -2,14 +2,42 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CONTACT, COMPLIANCE } from '../site.config';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Prosperity Services Group LLC',
-  url: 'https://prosperityservicesgroup.com/contact',
-  telephone: '+1-866-648-1578',
-  email: 'kayla@priceservicesgroup.com',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Prosperity Services Group LLC',
+    url: 'https://prosperityservicesgroup.com/contact',
+    telephone: '+1-866-648-1578',
+    email: 'kayla@priceservicesgroup.com',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How do I schedule a consultation?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Call or email us using the contact details on this page, or fill out the message form and we\'ll reach out to schedule a free, no-pressure consultation.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'How quickly will I get a response?',
+        acceptedAnswer: { '@type': 'Answer', text: 'We typically respond to messages within one business day.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is there any cost or obligation to talk with an advisor?',
+        acceptedAnswer: { '@type': 'Answer', text: 'No. Consultations are free and educational, with no obligation to purchase any insurance product.' },
+      },
+      {
+        '@type': 'Question',
+        name: 'What can I ask about during a consultation?',
+        acceptedAnswer: { '@type': 'Answer', text: 'You\'re welcome to ask about annuities, safe money strategies, income planning, or any other retirement savings question — a licensed independent advisor will walk through your options.' },
+      },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Contact Us | Prosperity Services Group"
