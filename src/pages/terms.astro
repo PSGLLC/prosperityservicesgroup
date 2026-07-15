@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { COMPLIANCE, CONTACT } from '../site.config';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Terms of Use',
+  url: 'https://prosperityservicesgroup.com/terms',
+};
+---
+<BaseLayout
+  title="Terms of Use | Prosperity Services Group"
+  description="Terms governing your use of the Prosperity Services Group website."
+  path="/terms"
+  jsonLd={jsonLd}
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow eyebrow-gold">Legal</p>
+      <h1>Terms of Use</h1>
+      <p class="subhead">Effective Date: July 14, 2026</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container legal">
+      <p>
+        These Terms of Use ("Terms") govern your access to and use of
+        prosperityservicesgroup.com (the "Site"), operated in connection with Kayla Price, a
+        licensed independent insurance agent (NPN 18530055), and Prosperity Services Group LLC.
+        By accessing or using the Site, you agree to be bound by these Terms. If you do not
+        agree, please do not use the Site.
+      </p>
+
+      <h2>1. Educational Purpose Only</h2>
+      <p>
+        The Site is provided for general educational purposes about fixed indexed annuities,
+        safe money strategies, and retirement income planning. Nothing on this Site constitutes
+        a recommendation, endorsement, or solicitation to purchase any specific annuity,
+        insurance product, or financial product. Any decision to purchase an annuity or other
+        insurance product should be made only after reviewing the specific product's disclosures
+        and speaking with a licensed agent about your individual circumstances.
+      </p>
+
+      <h2>2. Fixed Indexed Annuities Are Insurance Products</h2>
+      <p>
+        Fixed indexed annuities are insurance products, not securities. They are not deposits,
+        are not FDIC or NCUA insured, and are not guaranteed by any bank or credit union.
+        Guarantees associated with a fixed indexed annuity are backed solely by the financial
+        strength and claims-paying ability of the issuing insurance company. Fixed indexed
+        annuities may be subject to surrender charges, market value adjustments, and other
+        limitations described in the applicable contract and disclosure documents.
+      </p>
+
+      <h2>3. Licensed Insurance Agent Disclosure</h2>
+      <p>
+        Kayla Price is a licensed independent insurance agent (NPN 18530055) authorized to
+        discuss and sell annuity and insurance products in the states listed on this Site.
+        Licensed in: {COMPLIANCE.states.join(', ')}. Any personalized product discussion that
+        may follow your use of this Site's educational content will be conducted separately, by
+        a licensed agent, and is not part of the educational content itself.
+      </p>
+
+      <h2>4. No Guarantee of Accuracy</h2>
+      <p>
+        Annuity products, rates, and terms change frequently and vary by carrier and state.
+        While we strive to keep this Site accurate and current, we make no warranty, express or
+        implied, that any information on the Site is complete, accurate, or up to date. Always
+        confirm current rates, terms, and product features directly with the issuing insurance
+        carrier or a licensed agent before making a purchase decision.
+      </p>
+
+      <h2>5. Use of the Site</h2>
+      <p>
+        You agree to use the Site only for lawful purposes and in a manner consistent with these
+        Terms. You may not: (a) copy, reproduce, or redistribute Site content for commercial
+        purposes without our written permission; (b) attempt to interfere with the Site's normal
+        operation; or (c) submit false or misleading information through any form on the Site.
+      </p>
+
+      <h2>6. Intellectual Property</h2>
+      <p>
+        All content on the Site, including text, graphics, logos, and the "PSG Annuity Guide,"
+        is owned by or licensed to Prosperity Services Group LLC and is protected by applicable
+        intellectual property laws. You may view and share Site content for personal,
+        non-commercial, educational use only.
+      </p>
+
+      <h2>7. Third-Party Links</h2>
+      <p>
+        The Site may link to third-party websites for your convenience. We do not control and
+        are not responsible for the content or practices of third-party sites.
+      </p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, Prosperity Services Group LLC and Kayla Price
+        shall not be liable for any direct, indirect, incidental, or consequential damages
+        arising out of your use of, or inability to use, the Site or its content, including any
+        financial decisions made based on information found on the Site.
+      </p>
+
+      <h2>9. Communications Consent</h2>
+      <p>
+        By submitting a form on this Site, you consent to be contacted as described in our{' '}
+        <a href="/privacy">Privacy Policy</a>, including by phone, text, and email, regarding
+        annuities, retirement income planning, and related insurance products and services.
+      </p>
+
+      <h2>10. Changes to These Terms</h2>
+      <p>
+        We may revise these Terms from time to time. The "Effective Date" above reflects the
+        most recent revision. Continued use of the Site after changes are posted constitutes
+        acceptance of the revised Terms.
+      </p>
+
+      <h2>11. Governing Law</h2>
+      <p>
+        These Terms are governed by the laws of the State of North Carolina, without regard to
+        its conflict of law principles.
+      </p>
+
+      <h2>12. Contact Us</h2>
+      <p>
+        Questions about these Terms may be directed to Kayla Price, licensed independent
+        insurance agent (NPN 18530055), Prosperity Services Group LLC, at {CONTACT.email} or
+        {CONTACT.phone}.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2b1147 100%);
+    color: #fff;
+    padding: 4rem 0;
+  }
+  .hero h1 { color: #fff; }
+  .subhead { color: #e2d4f0; }
+  .legal { max-width: 800px; }
+  .legal h2 { margin-top: 2rem; font-size: 1.3rem; }
+  .legal p, .legal li { color: var(--color-text-muted); line-height: 1.7; }
+  .legal ul { padding-left: 1.4rem; }
+</style>
