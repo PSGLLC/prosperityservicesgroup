@@ -87,6 +87,22 @@ const jsonLd = [
       },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Income Planning', item: 'https://prosperityservicesgroup.com/income' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.page-hero .subhead', '.key-statement'],
+    },
+  },
 ];
 ---
 <BaseLayout
@@ -120,7 +136,7 @@ const jsonLd = [
 
       <h2>What is an income rider?</h2>
       <div class="callout-gold">
-        <p style="margin-bottom:0;">
+        <p class="key-statement" style="margin-bottom:0;">
           An income rider is an optional add-on available on many fixed indexed annuity contracts,
           typically for an additional cost or fee. It guarantees a stream of income for life, often
           based on a percentage of your contract's benefit base, once you begin taking withdrawals.

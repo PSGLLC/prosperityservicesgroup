@@ -55,6 +55,22 @@ const jsonLd = [
       },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Annuities', item: 'https://prosperityservicesgroup.com/annuities' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.page-hero .subhead', '.key-statement'],
+    },
+  },
 ];
 ---
 <BaseLayout
@@ -101,7 +117,7 @@ const jsonLd = [
       <div class="grid grid-3">
         <div class="card card-gold">
           <h3>Principal Protection</h3>
-          <p>Your original premium and previously credited interest are protected from market downturns, as long as you hold the contract per its terms.</p>
+          <p class="key-statement">Your original premium and previously credited interest are protected from market downturns, as long as you hold the contract per its terms.</p>
         </div>
         <div class="card card-gold">
           <h3>Growth Potential</h3>

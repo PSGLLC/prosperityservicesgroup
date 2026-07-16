@@ -38,6 +38,14 @@ const jsonLd = [
       name: 'Prosperity Services Group LLC',
     },
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.hero .subhead', '.key-statement'],
+    },
+  },
 ];
 ---
 <BaseLayout
@@ -86,7 +94,7 @@ const jsonLd = [
           understand how fixed indexed annuities and safe money strategies fit into their
           retirement plan — in plain English, without pressure or a sales pitch.
         </p>
-        <p>
+        <p class="key-statement">
           Because she isn't tied to a single insurance company, her focus stays on your goals —
           protecting your principal, growing your savings, and creating income you can't outlive.
         </p>

@@ -87,6 +87,22 @@ const jsonLd = [
       },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Safe Money', item: 'https://prosperityservicesgroup.com/safe-money' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.page-hero .subhead', '.key-statement'],
+    },
+  },
 ];
 ---
 <BaseLayout
@@ -118,7 +134,7 @@ const jsonLd = [
 
       <h2>What is sequence of returns risk?</h2>
       <div class="callout-gold">
-        <p style="margin-bottom:0;">
+        <p class="key-statement" style="margin-bottom:0;">
           Sequence of returns risk is the risk that the <em>order</em> in which you experience
           investment gains and losses — not just the average return over time — can permanently
           affect how long your money lasts. If a significant market downturn happens early in

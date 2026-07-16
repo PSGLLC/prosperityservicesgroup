@@ -2,12 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { COMPLIANCE, CONTACT } from '../site.config';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Privacy Policy',
-  url: 'https://prosperityservicesgroup.com/privacy',
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Privacy Policy',
+    url: 'https://prosperityservicesgroup.com/privacy',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://prosperityservicesgroup.com/privacy' },
+    ],
+  },
+];
 ---
 <BaseLayout
   title="Privacy Policy | Prosperity Services Group"
