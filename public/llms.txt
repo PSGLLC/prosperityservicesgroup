@@ -7,11 +7,11 @@
 
 ## Pages
 - Home: https://prosperityservicesgroup.com/
-- Fixed Indexed Annuities: https://prosperityservicesgroup.com/annuities
-- Safe Money Strategies: https://prosperityservicesgroup.com/safe-money
-- Lifetime Income Planning: https://prosperityservicesgroup.com/income
-- Free Annuity Guide: https://prosperityservicesgroup.com/guide
-- Contact: https://prosperityservicesgroup.com/contact
+- Fixed Indexed Annuities: https://prosperityservicesgroup.com/annuities/
+- Safe Money Strategies: https://prosperityservicesgroup.com/safe-money/
+- Lifetime Income Planning: https://prosperityservicesgroup.com/income/
+- Free Annuity Guide: https://prosperityservicesgroup.com/guide/
+- Contact: https://prosperityservicesgroup.com/contact/
 
 ## Compliance
 Fixed indexed annuities are insurance products, not securities. Guarantees backed by financial strength of issuing insurance company. Educational content only, not financial, tax, or legal advice. Licensed states: NC, SC, GA, FL, VA, MD, MI, KS, TX, OH. NPN 18530055 (agent) / 20387435 (agency).
