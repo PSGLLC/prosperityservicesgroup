@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Prosperity Services Group Blog',
+  description: 'Retirement income and annuity articles from Prosperity Services Group — coming soon.',
+  url: 'https://prosperityservicesgroup.com/blog',
+};
+---
+<BaseLayout
+  title="Retirement Blog | Articles Coming Soon | Prosperity Group"
+  description="New articles on annuities, safe money strategies, and retirement income planning are coming soon. Sign up for tips in the meantime."
+  path="/blog"
+  jsonLd={jsonLd}
+>
+  <section class="blog-hero">
+    <div class="container">
+      <p class="eyebrow">Retirement Blog</p>
+      <h1>New Articles Are on the Way</h1>
+      <p class="blog-hero-sub">
+        We're building out a library of plain-English articles on fixed indexed annuities, safe
+        money strategies, and retirement income planning. Nothing's published yet, but it's
+        actively in the works.
+      </p>
+      <div class="blog-hero-cta">
+        <a href="/guide" class="btn btn-primary">Get the Free Guide Instead →</a>
+        <a href="/safe-money" class="btn btn-outline">Explore Safe Money Strategies →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-newsletter-section">
+    <div class="container blog-newsletter-inner">
+      <div>
+        <h2>Get Retirement Tips by Email</h2>
+        <p>
+          Want to know when new articles go live? Price Services Group sends occasional
+          Medicare and retirement tips straight to your inbox — sign up on the main site.
+        </p>
+      </div>
+      <a href="https://priceservicesgroup.com/blog/" target="_blank" rel="noopener" class="btn btn-primary">
+        Sign Up for Tips →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-hero { padding: 3.5rem 0 2.5rem; text-align: center; }
+  .blog-hero-sub { max-width: 58ch; margin: 1rem auto 1.75rem; font-size: 1.05rem; line-height: 1.7; }
+  .blog-hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+  .blog-newsletter-section { padding: 2.5rem 0 4rem; background: var(--soft, #f5effe); }
+  .blog-newsletter-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .blog-newsletter-inner h2 { margin: 0 0 .4rem; font-size: 1.3rem; }
+  .blog-newsletter-inner p { margin: 0; color: var(--muted, #5a4a6e); max-width: 46ch; }
+</style>
