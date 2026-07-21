@@ -19,6 +19,11 @@ const jsonLd = [
     email: 'kayla@priceservicesgroup.com',
     areaServed: COMPLIANCE.states,
   },
+  // No AggregateRating here: this repo has no Google Reviews integration or any
+  // other real review-count source (checked functions/ and src/ for a reviews
+  // API — none exists, unlike PSG-Main-Website's /api/reviews/google). Add
+  // AggregateRating to this LocalBusiness block only once a real review source
+  // is wired up — do not publish placeholder/fake ratingValue or reviewCount.
   {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
