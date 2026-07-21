@@ -16,7 +16,37 @@ const { title, description, path, jsonLd, ogImage = '/brand/psg-logo.png' } = As
 const normalizedPath = path.endsWith('/') ? path : `${path}/`;
 const canonical = new URL(normalizedPath, SITE_URL).toString();
 const ogImageUrl = new URL(ogImage, SITE_URL).toString();
-const jsonLdEntries = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+
+const segments = path.split('/').filter(Boolean);
+const crumbLabels: Record<string, string> = {
+  annuities: 'Annuities',
+  'safe-money': 'Safe Money',
+  income: 'Income Planning',
+  guide: 'Free Guide',
+  faq: 'FAQ',
+  blog: 'Blog',
+  contact: 'Contact',
+  privacy: 'Privacy Policy',
+  terms: 'Terms of Use',
+};
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL + '/' },
+    ...segments.map((seg, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: crumbLabels[seg] ?? seg.charAt(0).toUpperCase() + seg.slice(1),
+      item: new URL('/' + segments.slice(0, i + 1).join('/'), SITE_URL).toString(),
+    })),
+  ],
+};
+
+const jsonLdEntries = [
+  ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : []),
+  ...(segments.length > 0 ? [breadcrumbJsonLd] : []),
+];
 ---
 <!doctype html>
 <html lang="en">

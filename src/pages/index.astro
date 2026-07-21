@@ -26,6 +26,18 @@ const jsonLd = [
     url: 'https://prosperityservicesgroup.com',
     telephone: '+1-866-648-1578',
     email: 'kayla@priceservicesgroup.com',
+    priceRange: 'Free Consultation',
+    areaServed: COMPLIANCE.states,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Retirement and Annuity Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fixed Indexed Annuities' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Life Insurance' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Retirement Income Planning' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Safe Money Strategies' } },
+      ],
+    },
   },
   {
     '@context': 'https://schema.org',
