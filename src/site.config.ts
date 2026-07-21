@@ -8,6 +8,7 @@ export const NAV_LINKS = [
   { href: '/safe-money', label: 'Safe Money' },
   { href: '/income', label: 'Income Planning' },
   { href: '/guide', label: 'Free Guide' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];

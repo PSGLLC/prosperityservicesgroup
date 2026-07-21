@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'What is a fixed indexed annuity?',
+    a: 'A fixed indexed annuity is an insurance contract that offers principal protection along with growth potential linked to the performance of a market index, like the S&P 500. Your principal isn\'t directly invested in the market, so it isn\'t at risk of loss due to index downturns.',
+  },
+  {
+    q: 'How is a fixed indexed annuity different from a variable annuity?',
+    a: 'A variable annuity invests your premium directly in market-based subaccounts, so your principal can go up or down with the market. A fixed indexed annuity credits interest based on index performance but keeps your principal protected from market losses.',
+  },
+  {
+    q: 'Is my money safe with a fixed indexed annuity?',
+    a: 'Fixed indexed annuities are insurance products, not securities. Your principal is protected from market downturns, and guarantees are backed by the financial strength of the issuing insurance company.',
+  },
+  {
+    q: 'What is a surrender period?',
+    a: 'A surrender period is a set number of years during which withdrawing more than a certain amount from your annuity may trigger a surrender charge. Most contracts allow penalty-free withdrawals up to a set percentage each year even during this period.',
+  },
+  {
+    q: 'Can I lose money in a fixed indexed annuity?',
+    a: "Your principal is protected from market-index losses — in a year the index goes down, your credited interest is typically $0, not negative. Fees or early withdrawals beyond the penalty-free amount during the surrender period are the main ways a contract's value could be reduced.",
+  },
+  {
+    q: 'What does "safe money planning" mean?',
+    a: 'Safe money planning means structuring a portion of your retirement savings into vehicles designed to protect principal from market risk, rather than exposing that money to potential losses, while still allowing for growth potential.',
+  },
+  {
+    q: 'How does retirement income planning work?',
+    a: 'Retirement income planning involves mapping out reliable income sources — like Social Security, pensions, and annuities — against your expected expenses, so you have predictable income throughout retirement rather than relying solely on market-dependent withdrawals.',
+  },
+  {
+    q: 'When should I start planning for retirement income?',
+    a: 'Most people benefit from starting retirement income planning 5 to 10 years before their target retirement date, giving enough time to structure guaranteed income sources and adjust strategy as retirement approaches.',
+  },
+  {
+    q: 'What is the difference between a pension and an annuity?',
+    a: 'A pension is an employer-funded retirement benefit, typically based on years of service and salary. An annuity is a contract you purchase yourself from an insurance company that can convert a lump sum into guaranteed income, similar to how a pension pays out.',
+  },
+  {
+    q: 'Can I use an annuity alongside Social Security?',
+    a: 'Yes. Many people use an annuity to supplement Social Security, creating an additional guaranteed income stream to help cover expenses Social Security alone may not fully address.',
+  },
+  {
+    q: 'How do I know if an annuity is right for me?',
+    a: 'It depends on your full financial picture — your other assets, income needs, risk tolerance, and time horizon. A licensed advisor can review your situation and help you decide whether an annuity fits alongside your other retirement savings.',
+  },
+  {
+    q: 'What happens to my annuity when I pass away?',
+    a: 'Most annuities allow you to name a beneficiary who receives the remaining contract value or a death benefit, depending on the contract terms. This can help pass along value to loved ones rather than the funds being lost.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Retirement Planning FAQ',
+    description: 'Answers to common questions about annuities, fixed indexed annuities, safe money planning, and retirement income strategies.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+<BaseLayout
+  title="Retirement & Annuity FAQ | Prosperity Services Group"
+  description="Answers to common questions about annuities, fixed indexed annuities, safe money planning, and retirement income strategies."
+  path="/faq"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow eyebrow-gold">FAQ</p>
+      <h1>Retirement Planning FAQ</h1>
+      <p class="subhead">Common questions about annuities, safe money strategies, and retirement income.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <div class="faq-item card">
+            <h2>{f.q}</h2>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: var(--color-lavender); padding: 4rem 0; }
+  :root[data-theme="dark"] .page-hero { background: var(--color-bg-alt); }
+  .subhead { color: var(--color-text-muted); font-size: 1.1rem; max-width: 640px; margin-bottom: 0; }
+
+  .faq-list { display: flex; flex-direction: column; gap: 1.25rem; max-width: 780px; margin: 0 auto; }
+  .faq-item h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+  .faq-item p { color: var(--color-text-muted); margin-bottom: 0; }
+</style>
