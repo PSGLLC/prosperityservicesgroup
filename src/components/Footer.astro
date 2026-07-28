@@ -19,6 +19,7 @@ const year = 2026;
 
     <div class="compliance">
       <p class="contact-line">{CONTACT.phone} &bull; {CONTACT.email}</p>
+      <p class="sister-agency">For Medicare and health insurance, visit our sister agency <a href="https://priceservicesgroup.com" target="_blank" rel="noopener noreferrer">Price Services Group</a>.</p>
       <p>{COMPLIANCE.npn} &bull; {COMPLIANCE.agencyNpn}</p>
       <p>Licensed in: {COMPLIANCE.states.join(', ')}</p>
       <p class="annuity-disclaimer">{COMPLIANCE.annuityDisclaimer}</p>
@@ -57,6 +58,8 @@ const year = 2026;
     margin: 0 0 0.5rem;
   }
   .contact-line { color: var(--color-purple) !important; font-weight: 600; font-size: 0.85rem !important; }
+  .sister-agency { font-size: 0.85rem !important; }
+  .sister-agency a { color: var(--color-teal); text-decoration: underline; }
   .annuity-disclaimer { font-style: italic; }
   .copyright { color: #9e8bb6; }
   .copyright a { color: #b6a4cb; text-decoration: underline; }

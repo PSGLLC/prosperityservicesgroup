@@ -18,7 +18,7 @@ export const COMPLIANCE = {
   agencyNpn: 'Agency NPN 20387435',
   states: ['NC', 'SC', 'GA', 'FL', 'VA', 'MD', 'MI', 'KS', 'TX', 'OH'],
   annuityDisclaimer:
-    'Fixed indexed annuities are insurance products, not securities. Guarantees backed by financial strength of issuing insurance company.',
+    'Fixed indexed annuities are insurance products, not securities. Guarantees backed by financial strength of issuing insurance company. Consult with a licensed agent to determine if an annuity is right for your situation.',
 };
 
 export const CONTACT = {
