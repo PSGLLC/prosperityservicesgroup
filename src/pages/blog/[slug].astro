@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BOOKING_URL } from '../../site.config';
+import { BLOG_POSTS } from '../../data/blog-posts';
+
+export function getStaticPaths() {
+  return BLOG_POSTS.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.publishDate,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Prosperity Services Group LLC',
+      url: 'https://prosperityservicesgroup.com',
+    },
+    mainEntityOfPage: `https://prosperityservicesgroup.com/blog/${post.slug}`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://prosperityservicesgroup.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://prosperityservicesgroup.com/blog/${post.slug}` },
+    ],
+  },
+];
+
+const formattedDate = new Date(post.publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<BaseLayout
+  title={`${post.title} | Prosperity Services Group`}
+  description={post.description}
+  path={`/blog/${post.slug}`}
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow eyebrow-gold">Retirement Blog</p>
+      <h1>{post.title}</h1>
+      <p class="post-meta">By {post.author} &bull; {formattedDate}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container narrow post-body" set:html={post.body} />
+  </section>
+
+  <section class="section-alt cta-band">
+    <div class="container cta-inner">
+      <h2>Ready to talk about your retirement?</h2>
+      <p>Schedule a free, no-pressure consultation with a licensed independent agent.</p>
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gold">Schedule a Call</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: var(--color-lavender); padding: 3.5rem 0; }
+  :root[data-theme="dark"] .page-hero { background: var(--color-bg-alt); }
+  .post-meta { color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 0; }
+  .narrow { max-width: 780px; }
+  .post-body :global(h2) { margin-top: 2rem; }
+  .post-body :global(ul) { margin: 0 0 1em 1.25rem; padding: 0; }
+  .post-body :global(.disclaimer) {
+    border-left: 4px solid var(--color-purple);
+    background: var(--color-bg-alt);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 1.1rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 2rem 0;
+  }
+  .cta-band { text-align: center; }
+  .cta-inner p { color: var(--color-text-muted); margin-bottom: 1.5rem; }
+</style>

@@ -14,6 +14,8 @@ interface ContactPayload {
   name?: string;
   email?: string;
   phone?: string;
+  bestTime?: string;
+  topic?: string;
   message?: string;
   pagePath?: string;
   website?: string; // honeypot — real visitors never fill this
@@ -68,6 +70,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   const name = String(body.name ?? "").trim();
   const email = String(body.email ?? "").trim();
   const phone = String(body.phone ?? "").trim();
+  const bestTime = String(body.bestTime ?? "").trim();
+  const topic = String(body.topic ?? "").trim();
   const message = String(body.message ?? "").trim();
 
   if (!name || !email || !message) {
@@ -85,6 +89,8 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     name,
     email,
     phone,
+    bestTime,
+    topic,
     message,
     locationId: GHL_LOCATION_ID,
     tags: ["prosperity-inquiry"],

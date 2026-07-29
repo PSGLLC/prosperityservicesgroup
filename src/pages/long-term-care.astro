@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BOOKING_URL, COMPLIANCE } from '../site.config';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Long-Term Care Planning',
+    description: 'What long-term care covers, typical North Carolina cost ranges, hybrid LTC policies, and when to start planning.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What counts as long-term care?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Long-term care refers to a range of services that help with daily activities like bathing, dressing, eating, and mobility, whether provided at home, in an assisted living community, or in a nursing facility. It is different from short-term medical or rehabilitation care.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does Medicare pay for long-term care?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Medicare generally covers only short-term, medically necessary skilled care after a qualifying hospital stay — it is not designed to pay for ongoing custodial long-term care. This is a common and costly misconception, and it is one reason many people plan separately for long-term care needs.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a hybrid long-term care policy?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A hybrid policy combines life insurance or an annuity with long-term care benefits. If you need long-term care, the policy can pay out for care expenses; if you never need care, the policy still provides a death benefit or account value, so the premium is not "use it or lose it" the way traditional standalone LTC insurance can be.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'When should I start planning for long-term care?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most people find it easier — and more affordable — to plan for long-term care in their 50s or 60s, while they are still healthy enough to qualify for coverage. Waiting until care is needed removes most planning options entirely.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Long-Term Care', item: 'https://prosperityservicesgroup.com/long-term-care' },
+    ],
+  },
+];
+---
+<BaseLayout
+  title="Long-Term Care Planning Guide | Prosperity Services"
+  description="What long-term care covers, general North Carolina cost ranges, hybrid LTC policies, and when to start planning for care costs in retirement."
+  path="/long-term-care"
+  jsonLd={jsonLd}
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow eyebrow-gold">Long-Term Care</p>
+      <h1>Planning for the Cost of Long-Term Care</h1>
+      <p class="subhead">
+        Long-term care is one of the biggest unplanned expenses in retirement — and one Medicare
+        largely does not cover. Here's what it costs, what your options are, and when to plan.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container narrow">
+      <h2>What does long-term care actually cover?</h2>
+      <p>
+        Long-term care refers to help with everyday activities — bathing, dressing, eating,
+        mobility, and managing medications — rather than short-term medical treatment. It can be
+        provided in your own home by a caregiver or home health aide, in an assisted living
+        community, or in a skilled nursing facility. Many people will need some form of long-term
+        care at some point, whether due to a chronic condition, an injury, or the effects of
+        aging.
+      </p>
+
+      <div class="callout-gold">
+        <p class="key-statement" style="margin-bottom:0;">
+          A common and costly misconception: Medicare is not designed to pay for ongoing
+          custodial long-term care. Medicare generally covers only short-term, medically necessary
+          skilled care following a qualifying hospital stay — not the type of extended daily
+          assistance most long-term care involves.
+        </p>
+      </div>
+
+      <h2>What does long-term care cost?</h2>
+      <p>
+        Costs vary widely depending on the type of care and location, but industry cost-of-care
+        surveys generally put North Carolina long-term care costs in roughly these ranges per
+        year, as a general guide rather than a specific quote for any individual situation:
+      </p>
+      <ul>
+        <li><strong>In-home care (non-medical home health aide):</strong> often in the range of $55,000–$65,000 per year for a typical schedule of care.</li>
+        <li><strong>Assisted living facility:</strong> often in the range of $45,000–$55,000 per year.</li>
+        <li><strong>Private room in a nursing home:</strong> often in the range of $100,000–$115,000 per year.</li>
+      </ul>
+      <p>
+        These figures are general industry ranges, not a quote — actual costs depend on your
+        specific location, level of care needed, and provider. Costs also tend to rise over time,
+        which is one reason many people build inflation protection into a long-term care plan.
+      </p>
+
+      <h2>Hybrid long-term care policies</h2>
+      <p>
+        Traditional standalone long-term care insurance pays benefits only if you need care — if
+        you never need it, the premiums are simply gone. Hybrid policies address that concern by
+        combining life insurance or an annuity with a long-term care benefit. If you need care,
+        the policy can pay out toward care costs; if you never need long-term care, the policy
+        still provides a death benefit to your beneficiaries or retains its account value. This
+        structure has made hybrid policies an increasingly popular alternative to standalone LTC
+        insurance.
+      </p>
+
+      <h2>When should you start planning?</h2>
+      <p>
+        Most long-term care and hybrid policies require you to answer health questions to qualify,
+        so the best time to plan is typically well before care is needed — often in your 50s or
+        60s while you're still in reasonably good health. Waiting until a health event occurs can
+        limit or eliminate your options entirely. Building a long-term care strategy alongside
+        your broader <a href="/retirement-income">retirement income plan</a> and
+        <a href="/annuities">annuity</a> strategy can help protect your savings from being drained
+        by an unexpected care need.
+      </p>
+
+      <h2>Ways to plan for long-term care costs</h2>
+      <p>
+        There isn't one single "right" way to plan for long-term care — the best approach depends
+        on your health, budget, and goals. Common approaches include:
+      </p>
+      <ul>
+        <li><strong>Traditional standalone LTC insurance:</strong> Pays a defined daily or monthly benefit toward qualifying care expenses. Premiums can increase over time, and benefits are only paid if care is actually needed.</li>
+        <li><strong>Hybrid life/LTC policies:</strong> Combine a life insurance death benefit with an LTC benefit, so unused LTC benefits still pass to beneficiaries as a death benefit.</li>
+        <li><strong>Hybrid annuity/LTC policies:</strong> Use an annuity's accumulated value to fund care costs, often at an enhanced payout rate if care is needed.</li>
+        <li><strong>Self-funding:</strong> Setting aside a dedicated pool of savings or investments specifically earmarked for potential care costs.</li>
+      </ul>
+
+      <h2>Why families often underestimate this risk</h2>
+      <p>
+        It's easy to assume "that won't happen to me" when it comes to long-term care, but the
+        need for some form of extended care later in life is common enough that it's worth
+        planning for regardless of your current health. The financial impact isn't limited to the
+        person who needs care — extended, unplanned care costs can also drain savings a spouse
+        was counting on, or create difficult decisions for adult children about how to help pay for
+        a parent's care. Addressing the question proactively, while there's still time to qualify
+        for coverage, tends to produce far better outcomes than scrambling to figure it out during
+        a health crisis.
+      </p>
+
+      <h2>Long-term care and your overall retirement plan</h2>
+      <p>
+        Long-term care planning works best when it's integrated with the rest of your retirement
+        strategy rather than treated as an afterthought. A hybrid policy, for example, might be
+        funded using a portion of assets that were otherwise sitting in low-growth accounts, or
+        structured alongside a <a href="/retirement-income">retirement income plan</a> so that a
+        care need doesn't force you to interrupt an income stream you're relying on elsewhere. A
+        licensed insurance agent can help you weigh standalone LTC insurance, hybrid policies, and
+        self-funding against your specific financial picture, health, and family situation.
+      </p>
+
+      <div class="disclaimer">
+        {COMPLIANCE.annuityDisclaimer}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt cta-band">
+    <div class="container cta-inner">
+      <h2>Want to talk through your long-term care options?</h2>
+      <p>Schedule a free, no-pressure consultation with a licensed insurance agent.</p>
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gold">Schedule a Call</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: var(--color-lavender); padding: 4rem 0; }
+  :root[data-theme="dark"] .page-hero { background: var(--color-bg-alt); }
+  .subhead { color: var(--color-text-muted); font-size: 1.1rem; max-width: 700px; margin-bottom: 0; }
+  .narrow { max-width: 820px; }
+  .cta-band { text-align: center; }
+  .cta-inner p { color: var(--color-text-muted); margin-bottom: 1.5rem; }
+</style>

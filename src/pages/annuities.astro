@@ -53,6 +53,14 @@ const jsonLd = [
           text: 'FIAs are generally designed for people who want to protect a portion of their retirement savings from market risk while still participating in some growth potential, often as part of a broader safe money strategy.',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'What is the difference between a cap rate and a participation rate?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A cap rate is the maximum interest rate your contract can credit in a given period, even if the index gains more. A participation rate determines what percentage of the index\'s gain is used to calculate your credited interest. Both, along with spreads, are ways carriers manage how much index gain is passed through to you, and they vary by contract and carrier.',
+        },
+      },
     ],
   },
   {
@@ -74,7 +82,7 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Fixed Indexed Annuities Explained | Prosperity Services Group"
+  title="Fixed Indexed Annuities, Explained | Prosperity Group"
   description="Learn how fixed indexed annuities work in plain English — principal protection, growth potential, and lifetime income options for retirement."
   path="/annuities"
   jsonLd={jsonLd}
@@ -129,15 +137,83 @@ const jsonLd = [
         </div>
       </div>
 
+      <h2>Understanding the floor and the cap</h2>
+      <p>
+        Two terms come up in almost every FIA conversation: the floor and the cap. The floor is
+        the guaranteed minimum interest credit for a period — on most FIAs, that floor is 0%,
+        meaning that even in a year the linked index loses value, your account simply earns no
+        interest for that period rather than losing value. The cap is the maximum interest rate
+        the contract can credit in a given period, even if the index gains more than that. Some
+        contracts use a participation rate instead of, or alongside, a cap — crediting a set
+        percentage of the index's gain — or a spread, which subtracts a set percentage from the
+        index's gain before crediting interest. Caps, participation rates, and spreads can all
+        change at renewal, within limits set by the contract, so it's worth understanding how your
+        specific contract works rather than assuming the initial rate lasts forever.
+      </p>
+
       <h2>Who might consider an FIA?</h2>
       <p>
         Fixed indexed annuities are generally designed for people who want to protect a portion of
         their retirement savings from market risk while still participating in some growth
         potential — often as part of a broader
         <a href="/safe-money">"safe money" strategy</a> alongside other retirement
-        assets. Whether an FIA fits your situation depends on your goals, timeline, and full
-        financial picture. Want a deeper walkthrough? Request our
-        <a href="/guide">free PSG Annuity Guide</a>.
+        assets. They tend to fit best for money you don't need immediate, unrestricted access to,
+        given surrender charge periods, and for people who value predictability over the
+        possibility of higher but less certain market returns. Whether an FIA fits your situation
+        depends on your goals, timeline, and full financial picture. Want a deeper walkthrough?
+        Request our <a href="/guide">free PSG Annuity Guide</a>.
+      </p>
+
+      <h2>Common myths about fixed indexed annuities</h2>
+      <ul>
+        <li>
+          <strong>"An FIA is the same as investing in the stock market."</strong> Not true — your
+          premium is never directly invested in the index. The index is only used to calculate how
+          much interest is credited to your contract.
+        </li>
+        <li>
+          <strong>"I can lose my principal if the market crashes."</strong> Generally not true for
+          the principal protection feature itself — a down index year typically means a $0 interest
+          credit, not a loss due to market performance. Fees, riders, or withdrawals beyond the
+          penalty-free amount are the more common ways contract value can be reduced.
+        </li>
+        <li>
+          <strong>"All annuities are the same."</strong> Not true — fixed, fixed indexed, and
+          variable annuities work very differently, and even within FIAs, crediting methods, caps,
+          participation rates, and riders vary significantly by carrier and contract.
+        </li>
+        <li>
+          <strong>"Once I buy an annuity, my money is locked up forever."</strong> Not entirely
+          true — most contracts allow penalty-free withdrawals up to a set percentage each year,
+          even during the surrender charge period, though full access to the full account value
+          may be limited for a number of years.
+        </li>
+      </ul>
+
+      <h2>How to evaluate a fixed indexed annuity</h2>
+      <p>
+        If you're comparing FIA contracts, a few questions are worth asking about each one: What is
+        the surrender charge schedule, and how much can you withdraw penalty-free each year? What
+        crediting methods are available, and what are the current caps, participation rates, or
+        spreads? Is there an optional income rider, and what does it cost? What is the financial
+        strength rating of the issuing insurance company? And critically — does the contract match
+        your timeline, since money you may need access to in the next few years generally isn't a
+        good fit for a product with a multi-year surrender schedule. A licensed insurance agent can
+        walk through these details across multiple carriers so you're comparing contracts on an
+        apples-to-apples basis rather than relying on a single company's pitch.
+      </p>
+
+      <h2>FIAs compared to other options</h2>
+      <p>
+        Compared to a bank CD, a fixed indexed annuity generally offers higher growth potential in
+        exchange for less liquidity during the surrender charge period. Compared to owning stocks
+        or mutual funds directly, an FIA trades away some upside potential for downside
+        protection — you won't capture every point of a strong market rally, but you also won't
+        experience a market-driven loss of principal. Compared to a variable annuity, which
+        invests your premium directly into market-based subaccounts, an FIA keeps your principal
+        out of direct market exposure entirely. None of these options is universally "better" —
+        the right fit depends on how much of your savings you want protected versus growth-focused,
+        and over what time horizon you're investing.
       </p>
 
       <div class="disclaimer">

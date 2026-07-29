@@ -19,7 +19,11 @@ const ogImageUrl = new URL(ogImage, SITE_URL).toString();
 
 const segments = path.split('/').filter(Boolean);
 const crumbLabels: Record<string, string> = {
+  about: 'About',
   annuities: 'Annuities',
+  'life-insurance': 'Life Insurance',
+  'long-term-care': 'Long-Term Care',
+  'retirement-income': 'Retirement Income',
   'safe-money': 'Safe Money',
   income: 'Income Planning',
   guide: 'Free Guide',

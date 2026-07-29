@@ -1,22 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { BOOKING_URL, COMPLIANCE } from '../site.config';
+import { BOOKING_URL, COMPLIANCE, CONTACT } from '../site.config';
 
-const topics = [
-  { href: '/annuities', title: 'Fixed Indexed Annuities', desc: 'What they are, how they work, and the growth and income features they can offer.' },
-  { href: '/safe-money', title: 'Safe Money Strategies', desc: 'Protecting your retirement savings from market downturns and sequence of returns risk.' },
-  { href: '/income', title: 'Lifetime Income Planning', desc: 'Turning your savings into a reliable, guaranteed stream of retirement income.' },
+const services = [
+  { href: '/annuities', title: 'Fixed Indexed Annuities', desc: 'Protect your principal from market downturns while still participating in index-linked growth potential.' },
+  { href: '/life-insurance', title: 'Life Insurance', desc: 'Term and permanent coverage, final expense planning, and legacy protection for every stage of life.' },
+  { href: '/long-term-care', title: 'Long-Term Care Planning', desc: 'Plan ahead for the cost of care Medicare doesn\'t cover, including hybrid life/LTC options.' },
+  { href: '/retirement-income', title: 'Retirement Income Planning', desc: 'Turn savings into a reliable paycheck using Social Security timing, income riders, and a bucket strategy.' },
+];
+
+const trustPoints = [
+  {
+    title: 'Independent Agent',
+    desc: 'Kayla is not tied to a single insurance company, so recommendations are based on comparing options across carriers — not a quota.',
+  },
+  {
+    title: 'No-Fee Consultations',
+    desc: 'Every consultation is free and educational, with no obligation to purchase any insurance product.',
+  },
+  {
+    title: 'Fiduciary-Minded Approach',
+    desc: 'Every conversation starts with your goals and full financial picture, not a product pitch — plain-English guidance you can actually use.',
+  },
+];
+
+const testimonials = [
+  { quote: 'Kayla walked me through how a fixed indexed annuity actually works — no pressure, just clear answers to every question I had.', name: 'J. Thompson, NC (placeholder testimonial)' },
+  { quote: 'I finally understand the difference between my savings that are protected and my savings that are exposed to market risk. That clarity alone was worth the call.', name: 'M. Alvarez, SC (placeholder testimonial)' },
+  { quote: 'We used the bucket strategy Kayla explained to reorganize our retirement income plan. It gave us a lot more peace of mind heading into retirement.', name: 'R. Douglas, GA (placeholder testimonial)' },
 ];
 
 const jsonLd = [
   {
     '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Prosperity Services Group',
+    url: 'https://prosperityservicesgroup.com',
+    description: 'Independent guidance on fixed indexed annuities, life insurance, long-term care planning, and retirement income planning.',
+  },
+  {
+    '@context': 'https://schema.org',
     '@type': 'FinancialService',
     name: 'Prosperity Services Group LLC',
     url: 'https://prosperityservicesgroup.com',
-    description: 'Independent guidance on fixed indexed annuities, safe money strategies, and lifetime income planning.',
-    telephone: '+1-866-648-1578',
-    email: 'kayla@priceservicesgroup.com',
+    description: 'Independent guidance on fixed indexed annuities, safe money strategies, life insurance, long-term care planning, and lifetime income planning.',
+    telephone: CONTACT.phoneHref.replace('tel:', ''),
+    email: CONTACT.email,
     areaServed: COMPLIANCE.states,
   },
   // No AggregateRating here: this repo has no Google Reviews integration or any
@@ -29,9 +58,17 @@ const jsonLd = [
     '@type': 'LocalBusiness',
     name: 'Prosperity Services Group LLC',
     url: 'https://prosperityservicesgroup.com',
-    telephone: '+1-866-648-1578',
-    email: 'kayla@priceservicesgroup.com',
+    telephone: CONTACT.phoneHref.replace('tel:', ''),
+    email: CONTACT.email,
     priceRange: 'Free Consultation',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: CONTACT.address.line1,
+      addressLocality: CONTACT.address.city,
+      addressRegion: CONTACT.address.state,
+      postalCode: CONTACT.address.zip,
+      addressCountry: 'US',
+    },
     areaServed: COMPLIANCE.states,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -39,8 +76,8 @@ const jsonLd = [
       itemListElement: [
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fixed Indexed Annuities' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Life Insurance' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Long-Term Care Planning' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Retirement Income Planning' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Safe Money Strategies' } },
       ],
     },
   },
@@ -57,6 +94,13 @@ const jsonLd = [
   },
   {
     '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://prosperityservicesgroup.com/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
     '@type': 'WebPage',
     speakable: {
       '@type': 'SpeakableSpecification',
@@ -66,37 +110,100 @@ const jsonLd = [
 ];
 ---
 <BaseLayout
-  title="Secure Your Financial Future | Prosperity Services Group"
-  description="Independent guidance on fixed indexed annuities, safe money strategies, and lifetime income planning — protect your savings, build guaranteed income."
+  title="Protect Your Retirement Savings | Prosperity Group"
+  description="Independent guidance on fixed indexed annuities, life insurance, long-term care, and retirement income planning — protect your savings, build guaranteed income."
   path="/"
   jsonLd={jsonLd}
 >
   <section class="hero">
     <div class="container hero-inner">
       <p class="eyebrow eyebrow-gold">Retirement &amp; Annuity Planning</p>
-      <h1>Secure Your Financial Future</h1>
+      <h1>Protect Your Retirement Income — Without Gambling Your Savings</h1>
       <p class="subhead">
         Fixed indexed annuities and safe money strategies can help protect what you've worked hard
-        to build while giving your retirement savings room to grow. Get independent, plain-English
+        to build while still giving your savings room to grow. Get independent, plain-English
         guidance built around your goals — not a sales pitch.
       </p>
-      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gold">Schedule a Consultation</a>
+      <div class="hero-ctas">
+        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-gold">Schedule a Call</a>
+        <a href="/annuities" class="btn btn-outline hero-outline">Learn About FIAs</a>
+      </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <p class="eyebrow">Explore</p>
-      <h2>Understand your options before you decide</h2>
-      <div class="grid grid-3">
-        {topics.map((t) => (
-          <a href={t.href} class="card card-gold topic-card">
-            <h3>{t.title}</h3>
-            <p>{t.desc}</p>
+      <p class="eyebrow">What We Do</p>
+      <h2>Retirement protection, built around your whole picture</h2>
+      <div class="grid grid-4">
+        {services.map((s) => (
+          <a href={s.href} class="card card-gold topic-card">
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
             <span class="learn-more">Learn more &rarr;</span>
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <p class="eyebrow eyebrow-gold">Why Prosperity</p>
+      <h2>Guidance you can actually trust</h2>
+      <div class="grid grid-3">
+        {trustPoints.map((t) => (
+          <div class="card">
+            <h3>{t.title}</h3>
+            <p>{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container narrow protected-money">
+      <p class="eyebrow eyebrow-gold">Is Your Money Protected?</p>
+      <h2>Market risk vs. protected growth</h2>
+      <p>
+        Money invested directly in the market can grow faster in good years — but it can also lose
+        value in a downturn, right when you may need to start drawing on it. A fixed indexed
+        annuity works differently: your principal is never directly invested in the market, so a
+        down year in the linked index generally means no interest credit, not a loss. That trade-off
+        — a cap on how much you can gain, in exchange for protection from market losses — is the
+        core idea behind "safe money" planning.
+      </p>
+      <p>
+        <a href="/annuities">See how fixed indexed annuities work in detail &rarr;</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <p class="eyebrow">What People Are Saying</p>
+      <h2>Real conversations, real clarity</h2>
+      <p class="testimonial-note">
+        The quotes below are illustrative, placeholder examples of the kind of feedback clients
+        commonly share — not verified reviews with specific results or outcomes.
+      </p>
+      <div class="grid grid-3">
+        {testimonials.map((t) => (
+          <div class="card testimonial-card">
+            <p class="quote">&ldquo;{t.quote}&rdquo;</p>
+            <p class="attribution">&mdash; {t.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Ready to protect your retirement?</h2>
+      <p>Schedule a free, no-pressure consultation with a licensed independent agent.</p>
+      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-teal">Schedule a Call</a>
     </div>
   </section>
 
@@ -117,17 +224,10 @@ const jsonLd = [
         </p>
         <p>
           Want a written overview first? Request our <a href="/guide">free PSG Annuity Guide</a>,
-          or <a href="/contact">get in touch</a> with any questions.
+          or <a href="/about">learn more about Kayla</a> and
+          <a href="/contact">get in touch</a> with any questions.
         </p>
       </div>
-    </div>
-  </section>
-
-  <section class="cta-section">
-    <div class="container cta-inner">
-      <h2>Ready to talk about your retirement?</h2>
-      <p>Schedule a free, no-pressure consultation with a licensed independent agent.</p>
-      <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-teal">Schedule a Consultation</a>
     </div>
   </section>
 </BaseLayout>
@@ -141,12 +241,26 @@ const jsonLd = [
   .hero-inner { max-width: 700px; }
   .hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.2rem); }
   .subhead { font-size: 1.15rem; color: #e2d4f0; margin-bottom: 1.75rem; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-outline { border-color: #fff; color: #fff; }
+  .hero-outline:hover { background: rgba(255,255,255,0.1); }
+
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 1100px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .grid-4 { grid-template-columns: 1fr; } }
 
   .topic-card { text-decoration: none; display: block; transition: transform 0.15s ease; }
   .topic-card:hover { transform: translateY(-4px); }
-  .topic-card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
-  .topic-card p { color: var(--color-text-muted); font-size: 0.92rem; margin: 0 0 0.75rem; }
+  .topic-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .topic-card p { color: var(--color-text-muted); font-size: 0.9rem; margin: 0 0 0.75rem; }
   .learn-more { color: var(--color-purple); font-weight: 700; font-size: 0.85rem; }
+  :root[data-theme="dark"] .learn-more { color: var(--color-teal); }
+
+  .protected-money { max-width: 780px; }
+
+  .testimonial-note { color: var(--color-text-muted); font-size: 0.85rem; max-width: 700px; }
+  .testimonial-card .quote { font-style: italic; margin-bottom: 0.75rem; }
+  .testimonial-card .attribution { color: var(--color-text-muted); font-weight: 600; font-size: 0.9rem; margin: 0; }
 
   .meet-kayla {
     display: grid;

@@ -9,7 +9,15 @@ const jsonLd = [
     name: 'Prosperity Services Group LLC',
     url: 'https://prosperityservicesgroup.com/contact',
     telephone: '+1-866-648-1578',
-    email: 'kayla@priceservicesgroup.com',
+    email: 'hello@priceservicesgroup.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1108 New Point Blvd Ste 130 PMB 1073',
+      addressLocality: 'Leland',
+      addressRegion: 'NC',
+      postalCode: '28451',
+      addressCountry: 'US',
+    },
   },
   {
     '@context': 'https://schema.org',
@@ -49,7 +57,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Contact Prosperity Services Group for a Free Consult"
-  description="Get in touch with Prosperity Services Group about fixed indexed annuities, safe money strategies, and lifetime income planning."
+  description="Get in touch with Prosperity Services Group about fixed indexed annuities, life insurance, long-term care, and lifetime income planning today."
   path="/contact"
   jsonLd={jsonLd}
 >
@@ -62,7 +70,8 @@ const jsonLd = [
         we're happy to help.
       </p>
       <div class="contact-details">
-        <a href={CONTACT.phoneHref} class="contact-item">{CONTACT.phone}</a>
+        <a href={CONTACT.phoneHref} class="contact-item">{CONTACT.phone} (toll-free)</a>
+        <a href={CONTACT.phoneLocalHref} class="contact-item">{CONTACT.phoneLocal} (local)</a>
         <a href={`mailto:${CONTACT.email}`} class="contact-item">{CONTACT.email}</a>
       </div>
     </div>
@@ -84,6 +93,27 @@ const jsonLd = [
           <div class="form-row">
             <label for="phone">Phone <span class="optional">(optional)</span></label>
             <input type="tel" id="phone" name="phone" autocomplete="tel" />
+          </div>
+          <div class="form-row">
+            <label for="bestTime">Best time to call <span class="optional">(optional)</span></label>
+            <select id="bestTime" name="bestTime">
+              <option value="">No preference</option>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
+              <option value="Evening">Evening</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="topic">What would you like to talk about? <span aria-hidden="true">*</span></label>
+            <select id="topic" name="topic" required>
+              <option value="">Select a topic</option>
+              <option value="Fixed Indexed Annuities">Fixed Indexed Annuities</option>
+              <option value="Life Insurance">Life Insurance</option>
+              <option value="Long-Term Care Planning">Long-Term Care Planning</option>
+              <option value="Retirement Income Planning">Retirement Income Planning</option>
+              <option value="Safe Money Strategies">Safe Money Strategies</option>
+              <option value="Something Else">Something Else</option>
+            </select>
           </div>
           <div class="form-row">
             <label for="message">Message <span aria-hidden="true">*</span></label>
@@ -111,8 +141,10 @@ const jsonLd = [
 
       <div class="card card-gold info-card">
         <h2>Reach Us Directly</h2>
-        <p><strong>Phone:</strong> <a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
+        <p><strong>Toll-free:</strong> <a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
+        <p><strong>Local:</strong> <a href={CONTACT.phoneLocalHref}>{CONTACT.phoneLocal}</a></p>
         <p><strong>Email:</strong> <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+        <p><strong>Mail:</strong> {CONTACT.address.line1}, {CONTACT.address.city}, {CONTACT.address.state} {CONTACT.address.zip}</p>
         <p><strong>Licensed in:</strong> {COMPLIANCE.states.join(', ')}</p>
         <div class="disclaimer">
           {COMPLIANCE.annuityDisclaimer}
@@ -138,6 +170,8 @@ const jsonLd = [
         name: String(formData.get('name') ?? '').trim(),
         email: String(formData.get('email') ?? '').trim(),
         phone: String(formData.get('phone') ?? '').trim(),
+        bestTime: String(formData.get('bestTime') ?? '').trim(),
+        topic: String(formData.get('topic') ?? '').trim(),
         message: String(formData.get('message') ?? '').trim(),
         website: String(formData.get('website') ?? ''),
         pagePath: window.location.pathname,
@@ -208,7 +242,7 @@ const jsonLd = [
   .form-row { display: flex; flex-direction: column; gap: 0.35rem; text-align: left; }
   .form-row label { font-weight: 600; font-size: 0.9rem; color: var(--color-text); }
   .form-row .optional { font-weight: 400; color: var(--color-text-muted); font-size: 0.8rem; }
-  .form-row input, .form-row textarea {
+  .form-row input, .form-row textarea, .form-row select {
     font-family: var(--font-body);
     font-size: 1rem;
     padding: 0.7rem 0.9rem;
@@ -218,13 +252,14 @@ const jsonLd = [
     color: var(--color-text);
     resize: vertical;
   }
-  .form-row input:focus, .form-row textarea:focus {
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
     outline: none;
     border-color: var(--color-purple);
     box-shadow: 0 0 0 3px rgba(144, 89, 181, 0.18);
   }
   :root[data-theme="dark"] .form-row input:focus,
-  :root[data-theme="dark"] .form-row textarea:focus {
+  :root[data-theme="dark"] .form-row textarea:focus,
+  :root[data-theme="dark"] .form-row select:focus {
     border-color: var(--color-teal);
     box-shadow: 0 0 0 3px rgba(81, 222, 204, 0.18);
   }
