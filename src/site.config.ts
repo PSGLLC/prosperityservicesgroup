@@ -51,11 +51,11 @@ export const COMPLIANCE = {
 export const CONTACT = {
   phone: '(866) 648-1578',
   phoneHref: 'tel:+18666481578',
-  phoneLocal: '(910) 631-1578',
-  phoneLocalHref: 'tel:+19106311578',
+  phoneLocal: '(910) 631-5392',
+  phoneLocalHref: 'tel:+19106315392',
   email: 'hello@priceservicesgroup.com',
   address: {
-    line1: '1108 New Point Blvd Ste 130 PMB 1073',
+    line1: '1108 New Pointe Blvd Ste 130 PMB 1073',
     city: 'Leland',
     state: 'NC',
     zip: '28451',
