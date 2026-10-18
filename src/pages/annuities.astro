@@ -7,7 +7,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Fixed Indexed Annuities Explained',
-    description: 'A plain-English explanation of fixed indexed annuities: how they work, and their principal protection, growth, and income benefits.',
+    description: 'A plain-English overview of fixed indexed annuity crediting methods, contract terms, costs, and optional income features.',
   },
   {
     '@context': 'https://schema.org',
@@ -18,7 +18,7 @@ const jsonLd = [
         name: 'What is a fixed indexed annuity?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A fixed indexed annuity (FIA) is an insurance contract, not a direct investment in the stock market. The insurance company credits interest based in part on the performance of a market index, but your principal is never directly invested in that index.',
+          text: 'A fixed indexed annuity is an insurance contract. Interest credits are calculated using a formula tied in part to an external index; the contract is not a direct investment in that index.',
         },
       },
       {
@@ -26,7 +26,7 @@ const jsonLd = [
         name: 'Can I lose money in a fixed indexed annuity?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Your principal and previously credited interest are protected from market downturns as long as you hold the contract per its terms. If the index goes down, you simply receive no interest credit for that period rather than losing account value.',
+          text: 'A contract\'s index-credit floor may limit negative index-linked interest for a period, but fees, withdrawals, rider charges, and surrender terms can affect contract value. Check the specific policy.',
         },
       },
       {
@@ -42,7 +42,7 @@ const jsonLd = [
         name: 'Can a fixed indexed annuity provide lifetime income?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Many FIA contracts offer optional income riders that can convert your accumulated value into a guaranteed stream of income you cannot outlive.',
+          text: 'Some contracts offer optional lifetime income riders, often for a fee. Payouts, eligibility, conditions, and guarantees depend on the rider and insurer.',
         },
       },
       {
@@ -50,7 +50,7 @@ const jsonLd = [
         name: 'Who might consider a fixed indexed annuity?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'FIAs are generally designed for people who want to protect a portion of their retirement savings from market risk while still participating in some growth potential, often as part of a broader safe money strategy.',
+          text: 'Some people consider FIAs for a portion of long-term savings. Whether one fits depends on liquidity needs, fees, contract limits, alternatives, and personal circumstances.',
         },
       },
       {
@@ -116,16 +116,14 @@ const jsonLd = [
         Each year (or contract period), the insurance company calculates interest credits based on
         the performance of the index the contract is tied to, subject to the terms, caps,
         participation rates, or spreads outlined in your contract. If the index goes up, you may
-        receive a positive interest credit. If the index goes down, your account generally does
-        not lose value due to market performance — you simply receive no interest credit for that
-        period. Your existing account value stays protected.
+        receive a positive interest credit. A contract\'s index-credit floor may limit negative index-linked interest for a period, but fees, withdrawals, rider charges, and surrender terms can affect contract value. Check the specific policy.
       </p>
 
       <h2>Key benefits</h2>
       <div class="grid grid-3">
         <div class="card card-gold">
           <h3>Principal Protection</h3>
-          <p class="key-statement">Your original premium and previously credited interest are protected from market downturns, as long as you hold the contract per its terms.</p>
+          <p class="key-statement">An index-credit floor may limit index-linked losses, but fees, withdrawals, rider charges, and surrender provisions can reduce contract value. Terms vary by policy.</p>
         </div>
         <div class="card card-gold">
           <h3>Growth Potential</h3>
@@ -133,16 +131,13 @@ const jsonLd = [
         </div>
         <div class="card card-gold">
           <h3>Lifetime Income Options</h3>
-          <p>Many contracts offer optional income riders that can convert your accumulated value into a guaranteed stream of income you cannot outlive. See how this works on our <a href="/income">Lifetime Income Planning</a> page.</p>
+          <p>Some contracts offer optional lifetime income riders, often for a fee. Payouts, eligibility, conditions, and guarantees depend on the rider and insurer. See how this works on our <a href="/income">Lifetime Income Planning</a> page.</p>
         </div>
       </div>
 
       <h2>Understanding the floor and the cap</h2>
       <p>
-        Two terms come up in almost every FIA conversation: the floor and the cap. The floor is
-        the guaranteed minimum interest credit for a period — on most FIAs, that floor is 0%,
-        meaning that even in a year the linked index loses value, your account simply earns no
-        interest for that period rather than losing value. The cap is the maximum interest rate
+        A contract may specify a floor for index-linked interest credits. A zero floor may mean no negative index-linked credit for a period; it does not prevent fees, withdrawals, rider charges, or surrender terms from reducing value. The cap is the maximum interest rate
         the contract can credit in a given period, even if the index gains more than that. Some
         contracts use a participation rate instead of, or alongside, a cap — crediting a set
         percentage of the index's gain — or a spread, which subtracts a set percentage from the
@@ -167,15 +162,10 @@ const jsonLd = [
       <h2>Common myths about fixed indexed annuities</h2>
       <ul>
         <li>
-          <strong>"An FIA is the same as investing in the stock market."</strong> Not true — your
-          premium is never directly invested in the index. The index is only used to calculate how
-          much interest is credited to your contract.
+          <strong>"An FIA is the same as investing in the stock market."</strong> A fixed indexed annuity is not a direct investment in an index. The contract uses an index-linked formula to calculate interest credits, subject to its terms.
         </li>
         <li>
-          <strong>"I can lose my principal if the market crashes."</strong> Generally not true for
-          the principal protection feature itself — a down index year typically means a $0 interest
-          credit, not a loss due to market performance. Fees, riders, or withdrawals beyond the
-          penalty-free amount are the more common ways contract value can be reduced.
+          <strong>"I can lose my principal if the market crashes."</strong> An index decline may mean no index-linked interest credit for that period, but fees, rider charges, withdrawals, and surrender terms can still reduce contract value.
         </li>
         <li>
           <strong>"All annuities are the same."</strong> Not true — fixed, fixed indexed, and
@@ -205,11 +195,9 @@ const jsonLd = [
 
       <h2>FIAs compared to other options</h2>
       <p>
-        Compared to a bank CD, a fixed indexed annuity generally offers higher growth potential in
-        exchange for less liquidity during the surrender charge period. Compared to owning stocks
+        A fixed indexed annuity is not a bank deposit or CD. Crediting methods, fees, access limits, and guarantees differ; compare the specific contract terms. Compared to owning stocks
         or mutual funds directly, an FIA trades away some upside potential for downside
-        protection — you won't capture every point of a strong market rally, but you also won't
-        experience a market-driven loss of principal. Compared to a variable annuity, which
+        protection — you may not receive the full return of a market index, and fees, withdrawals, rider charges, and other contract provisions may affect value. Compared to a variable annuity, which
         invests your premium directly into market-based subaccounts, an FIA keeps your principal
         out of direct market exposure entirely. None of these options is universally "better" —
         the right fit depends on how much of your savings you want protected versus growth-focused,

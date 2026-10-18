@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { BOOKING_URL, COMPLIANCE, CONTACT } from '../site.config';
 
 const services = [
-  { href: '/annuities', title: 'Fixed Indexed Annuities', desc: 'Protect your principal from market downturns while still participating in index-linked growth potential.' },
+  { href: '/annuities', title: 'Fixed Indexed Annuities', desc: 'Explore how fixed indexed annuities credit interest and how contract terms, charges, and limits affect value.' },
   { href: '/life-insurance', title: 'Life Insurance', desc: 'Term and permanent coverage, final expense planning, and legacy protection for every stage of life.' },
   { href: '/long-term-care', title: 'Long-Term Care Planning', desc: 'Plan ahead for the cost of care Medicare doesn\'t cover, including hybrid life/LTC options.' },
   { href: '/retirement-income', title: 'Retirement Income Planning', desc: 'Turn savings into a reliable paycheck using Social Security timing, income riders, and a bucket strategy.' },
@@ -12,14 +12,14 @@ const services = [
 const trustPoints = [
   {
     title: 'Independent Agent',
-    desc: 'Kayla is not tied to a single insurance company, so recommendations are based on comparing options across carriers — not a quota.',
+    desc: 'As an independent agent, Kayla can discuss options from multiple insurers she represents; availability and recommendations depend on your needs and the contracts offered.',
   },
   {
     title: 'No-Fee Consultations',
-    desc: 'Every consultation is free and educational, with no obligation to purchase any insurance product.',
+    desc: 'There is no fee for a consultation and no obligation to buy. If you enroll in a product, an insurer may compensate the agency; terms and availability vary.',
   },
   {
-    title: 'Fiduciary-Minded Approach',
+    title: 'Education-First Approach',
     desc: 'Every conversation starts with your goals and full financial picture, not a product pitch — plain-English guidance you can actually use.',
   },
 ];
@@ -30,14 +30,14 @@ const jsonLd = [
     '@type': 'WebSite',
     name: 'Prosperity Services Group',
     url: 'https://prosperityservicesgroup.com',
-    description: 'Independent guidance on fixed indexed annuities, life insurance, long-term care planning, and retirement income planning.',
+    description: 'Education about insurance options, contract terms, and retirement income planning.',
   },
   {
     '@context': 'https://schema.org',
     '@type': 'FinancialService',
     name: 'Prosperity Services Group LLC',
     url: 'https://prosperityservicesgroup.com',
-    description: 'Independent guidance on fixed indexed annuities, safe money strategies, life insurance, long-term care planning, and lifetime income planning.',
+    description: 'Education about insurance options, contract terms, and retirement income planning.' ,
     telephone: CONTACT.phoneHref.replace('tel:', ''),
     email: CONTACT.email,
     areaServed: COMPLIANCE.states,
@@ -105,7 +105,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Protect Your Retirement Savings | Prosperity Group"
-  description="Independent guidance on fixed indexed annuities, life insurance, long-term care, and retirement income planning — protect your savings, build guaranteed income."
+  description="Learn about insurance options, their contract terms, and retirement income planning."
   path="/"
   jsonLd={jsonLd}
 >
@@ -163,10 +163,7 @@ const jsonLd = [
       <p>
         Money invested directly in the market can grow faster in good years — but it can also lose
         value in a downturn, right when you may need to start drawing on it. A fixed indexed
-        annuity works differently: your principal is never directly invested in the market, so a
-        down year in the linked index generally means no interest credit, not a loss. That trade-off
-        — a cap on how much you can gain, in exchange for protection from market losses — is the
-        core idea behind "safe money" planning.
+        annuity uses a contract formula to calculate interest credits based in part on an external index. A negative index result may mean no index-linked credit for that period, while fees, withdrawals, rider costs, and surrender provisions may still affect contract value. Caps, participation rates, and spreads can limit credited interest. These features and tradeoffs are important to understand before considering an annuity.
       </p>
       <p>
         <a href="/annuities">See how fixed indexed annuities work in detail &rarr;</a>
@@ -195,7 +192,7 @@ const jsonLd = [
         </p>
         <p class="key-statement">
           Because she isn't tied to a single insurance company, her focus stays on your goals —
-          protecting your principal, growing your savings, and creating income you can't outlive.
+          reviewing contract features and exploring income options.
         </p>
         <p>
           Want a written overview first? Request our <a href="/guide">free PSG Annuity Guide</a>,
