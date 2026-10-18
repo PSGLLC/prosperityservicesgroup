@@ -24,12 +24,6 @@ const trustPoints = [
   },
 ];
 
-const testimonials = [
-  { quote: 'Kayla walked me through how a fixed indexed annuity actually works — no pressure, just clear answers to every question I had.', name: 'J. Thompson, NC (placeholder testimonial)' },
-  { quote: 'I finally understand the difference between my savings that are protected and my savings that are exposed to market risk. That clarity alone was worth the call.', name: 'M. Alvarez, SC (placeholder testimonial)' },
-  { quote: 'We used the bucket strategy Kayla explained to reorganize our retirement income plan. It gave us a lot more peace of mind heading into retirement.', name: 'R. Douglas, GA (placeholder testimonial)' },
-];
-
 const jsonLd = [
   {
     '@context': 'https://schema.org',
@@ -180,25 +174,6 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="section-alt">
-    <div class="container">
-      <p class="eyebrow">What People Are Saying</p>
-      <h2>Real conversations, real clarity</h2>
-      <p class="testimonial-note">
-        The quotes below are illustrative, placeholder examples of the kind of feedback clients
-        commonly share — not verified reviews with specific results or outcomes.
-      </p>
-      <div class="grid grid-3">
-        {testimonials.map((t) => (
-          <div class="card testimonial-card">
-            <p class="quote">&ldquo;{t.quote}&rdquo;</p>
-            <p class="attribution">&mdash; {t.name}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="cta-section">
     <div class="container cta-inner">
       <h2>Ready to protect your retirement?</h2>
@@ -257,10 +232,6 @@ const jsonLd = [
   :root[data-theme="dark"] .learn-more { color: var(--color-teal); }
 
   .protected-money { max-width: 780px; }
-
-  .testimonial-note { color: var(--color-text-muted); font-size: 0.85rem; max-width: 700px; }
-  .testimonial-card .quote { font-style: italic; margin-bottom: 0.75rem; }
-  .testimonial-card .attribution { color: var(--color-text-muted); font-weight: 600; font-size: 0.9rem; margin: 0; }
 
   .meet-kayla {
     display: grid;
