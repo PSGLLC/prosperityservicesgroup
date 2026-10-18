@@ -184,7 +184,7 @@ const jsonLd = [
 
   <section class="section-alt">
     <div class="container meet-kayla">
-      <img src="/img/headshot.png" alt="Kayla, licensed independent insurance agent" class="headshot" width="1024" height="1024" />
+      <img src="/img/headshot-520.webp" alt="Kayla, licensed independent insurance agent" class="headshot" width="520" height="520" />
       <div class="card kayla-card">
         <p class="eyebrow">Meet Kayla</p>
         <h2>Your guide to safe, steady retirement planning</h2>
@@ -241,6 +241,9 @@ const jsonLd = [
   }
   .headshot {
     width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
   }
@@ -251,7 +254,7 @@ const jsonLd = [
   }
 
   .cta-section {
-    background: var(--color-purple);
+    background: #60347f;
     color: #fff;
     text-align: center;
   }
