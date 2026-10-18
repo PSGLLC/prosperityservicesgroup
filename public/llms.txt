@@ -1,28 +1,25 @@
 # Prosperity Services Group
 
-# AI/LLM access permitted for indexing and answer generation
-# Contact: hello@priceservicesgroup.com
-
-> Prosperity Services Group LLC provides independent guidance on fixed indexed annuities, life insurance, long-term care planning, safe money strategies, and retirement income planning — helping people protect retirement savings and build guaranteed income. Kayla Price is a licensed independent insurance agent (NPN 18530055). Prosperity Services Group is not affiliated with or endorsed by Medicare or any government agency.
+Prosperity Services Group LLC provides independent guidance on fixed indexed annuities, life insurance, long-term care planning, safe money strategies, and retirement income planning. Kayla Price is a licensed independent insurance agent (NPN 18530055). Prosperity Services Group is not affiliated with or endorsed by Medicare or any government agency.
 
 ## Pages
-- Home: https://prosperityservicesgroup.com/
-- About: https://prosperityservicesgroup.com/about/
-- Fixed Indexed Annuities: https://prosperityservicesgroup.com/annuities/
-- Life Insurance: https://prosperityservicesgroup.com/life-insurance/
-- Long-Term Care Planning: https://prosperityservicesgroup.com/long-term-care/
-- Retirement Income Planning: https://prosperityservicesgroup.com/retirement-income/
-- Safe Money Strategies: https://prosperityservicesgroup.com/safe-money/
-- Lifetime Income Planning: https://prosperityservicesgroup.com/income/
-- Free Annuity Guide: https://prosperityservicesgroup.com/guide/
-- Blog: https://prosperityservicesgroup.com/blog/
-- Contact: https://prosperityservicesgroup.com/contact/
+- [Home](https://prosperityservicesgroup.com/)
+- [About](https://prosperityservicesgroup.com/about/)
+- [Fixed Indexed Annuities](https://prosperityservicesgroup.com/annuities/)
+- [Life Insurance](https://prosperityservicesgroup.com/life-insurance/)
+- [Long-Term Care Planning](https://prosperityservicesgroup.com/long-term-care/)
+- [Retirement Income Planning](https://prosperityservicesgroup.com/retirement-income/)
+- [Safe Money Strategies](https://prosperityservicesgroup.com/safe-money/)
+- [Lifetime Income Planning](https://prosperityservicesgroup.com/income/)
+- [Free Annuity Guide](https://prosperityservicesgroup.com/guide/)
+- [Blog](https://prosperityservicesgroup.com/blog/)
+- [Contact](https://prosperityservicesgroup.com/contact/)
 
 ## Compliance
-Fixed indexed annuities are insurance products, not investments. They are not FDIC insured and involve fees, surrender charges, and terms that vary by carrier and state. Consult with a licensed insurance agent to determine if an annuity is suitable for your specific situation. Educational content only, not financial, tax, or legal advice. Licensed states: NC, SC, GA, FL, VA, MD, MI, KS, TX, OH. NPN 18530055 (agent) / 20387435 (agency). Prosperity Services Group is not affiliated with or endorsed by Medicare or any government agency.
+Fixed indexed annuities are insurance products, not investments. They are not FDIC insured and involve fees, surrender charges, and terms that vary by carrier and state. Consult with a licensed insurance agent to determine if an annuity is suitable for your specific situation. Educational content only, not financial, tax, or legal advice. Licensed states: NC, SC, GA, FL, MD, MI, KS, TX, OH. NPN 18530055 (agent) / 20387435 (agency). Prosperity Services Group is not affiliated with or endorsed by Medicare or any government agency.
 
 ## Contact
-- Website: https://prosperityservicesgroup.com
+- [Website](https://prosperityservicesgroup.com/)
 - Phone: (866) 648-1578 (toll-free) / (910) 631-5392 (local)
 - Email: hello@priceservicesgroup.com
 - Mail: 1108 New Pointe Blvd Ste 130 PMB 1073, Leland, NC 28451
