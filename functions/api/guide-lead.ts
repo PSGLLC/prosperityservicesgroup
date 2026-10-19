@@ -85,10 +85,6 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   if (phone && !PHONE_RE.test(phone)) {
     return json({ ok: false, error: "Enter a valid phone number." }, 400);
   }
-  if (!smsOptIn) {
-    return json({ ok: false, error: "SMS opt-in consent is required." }, 400);
-  }
-
   const submittedAt = new Date().toISOString();
   const payload = {
     firstName,

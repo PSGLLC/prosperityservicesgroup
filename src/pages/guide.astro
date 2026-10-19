@@ -16,7 +16,7 @@ const jsonLd = [
       {
         '@type': 'Question',
         name: 'What does the free PSG Annuity Guide cover?',
-        acceptedAnswer: { '@type': 'Answer', text: 'The guide breaks down safe money strategies in plain English, explains sequence of returns risk, covers how fixed indexed annuities offer principal protection and growth potential, explains what an income rider is, and lists questions to ask before moving any portion of your savings.' },
+        acceptedAnswer: { '@type': 'Answer', text: "The guide explains retirement-planning tradeoffs, sequence-of-returns risk, fixed indexed annuity crediting features and contract limits, optional income riders, and questions to ask before making a decision." },
       },
       {
         '@type': 'Question',
@@ -31,7 +31,7 @@ const jsonLd = [
       {
         '@type': 'Question',
         name: 'Who is the PSG Annuity Guide for?',
-        acceptedAnswer: { '@type': 'Answer', text: 'It\'s designed for anyone approaching or in retirement who wants a clear, no-pressure walkthrough of how to protect retirement savings from market risk and build guaranteed lifetime income.' },
+        acceptedAnswer: { '@type': 'Answer', text: "It is designed for people approaching or in retirement who want a plain-English overview of annuity features, tradeoffs, costs, and potential income options." },
       },
     ],
   },
@@ -39,7 +39,7 @@ const jsonLd = [
 ---
 <BaseLayout
   title="Get the Free PSG Annuity Guide | Prosperity Services Group"
-  description="Request our free PSG Annuity Guide: protecting your retirement savings from market risk and building guaranteed income — sent straight to your inbox."
+  description="Request our free PSG Annuity Guide for an educational overview of fixed indexed annuities, contract terms, costs, and potential income options."
   path="/guide"
   jsonLd={jsonLd}
 >
@@ -48,8 +48,8 @@ const jsonLd = [
       <p class="eyebrow eyebrow-gold">Free Guide</p>
       <h1>Your Free PSG Annuity Guide</h1>
       <p class="subhead">
-        A clear, no-pressure walkthrough of how to protect your retirement savings from market
-        risk and build guaranteed income you can't outlive.
+        A plain-English overview of fixed indexed annuities, how contract terms and costs affect value,
+        and questions to consider before deciding whether an option fits your plan.
       </p>
     </div>
   </section>
@@ -61,8 +61,8 @@ const jsonLd = [
         <ul>
           <li>A plain-English breakdown of safe money strategies</li>
           <li>How sequence of returns risk can affect your retirement income</li>
-          <li>How fixed indexed annuities offer principal protection and growth potential</li>
-          <li>What an income rider is and how it can guarantee lifetime income</li>
+          <li>How fixed indexed annuity interest-crediting formulas, limits, and charges work</li>
+          <li>What optional income riders may provide, and how fees and conditions apply</li>
           <li>Questions to ask before moving any portion of your savings</li>
         </ul>
         <p class="fine-print">
@@ -113,8 +113,8 @@ const jsonLd = [
 
           <div class="form-row form-row-checkbox">
             <label class="checkbox-label" for="smsOptIn">
-              <input type="checkbox" id="smsOptIn" name="smsOptIn" required />
-              <span>I agree to receive text messages from Price Services Group LLC. Message and data rates may apply.</span>
+              <input type="checkbox" id="smsOptIn" name="smsOptIn" />
+              <span>Optional: I agree to receive text messages from Price Services Group LLC. Message and data rates may apply. You can request the guide without opting in.</span>
             </label>
           </div>
 
@@ -149,21 +149,13 @@ const jsonLd = [
       const formData = new FormData(form);
       const smsOptIn = formData.get('smsOptIn') === 'on';
 
-      if (!smsOptIn) {
-        if (errorEl) {
-          errorEl.textContent = 'Please check the box to agree to receive text messages.';
-          errorEl.hidden = false;
-        }
-        return;
-      }
-
       const payload = {
         firstName: String(formData.get('firstName') ?? '').trim(),
         lastName: String(formData.get('lastName') ?? '').trim(),
         email: String(formData.get('email') ?? '').trim(),
         phone: String(formData.get('phone') ?? '').trim(),
         website: String(formData.get('website') ?? ''),
-        smsOptIn: true,
+        smsOptIn,
         pagePath: window.location.pathname,
       };
 
